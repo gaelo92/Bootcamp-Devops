@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  some-mongo:
+    image: mongo:latest
+    volumes:
+      - lemoncode-challenge-data:/data/db
+    ports:
+      - "27017:27017"
+    restart: always
+    networks: 
+        - lemoncode-challenge
+  topics-api:
+    depends_on:
+      - database
+    build: ./dotnet-stack/backend
+    ports:
+      - "5000:5000"
+    restart: always
+    environment:
+      MONGO_URI: some-mongo:27017
+    networks: 
+      - lemoncode-challenge
+  frontend:
+    depends_on:
+      - backend
+    build: ./dotnet-stack/frontend
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      API_URI: http://topics-api:5000/api/topics
+    networks: 
+      - lemoncode-challenge
+volumes:
+    lemoncode-challenge-data:
+networks:
+    lemoncode-challenge:
