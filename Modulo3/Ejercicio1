@@ -1,6 +1,0 @@
-Ejercicio 1. Monolito en memoria.
-Se trata de una aplicación web que expone una aplicación de UI (la típica aplicación TODO), y una API para gestionar en servidor los 'TODOS'. La persistencia de los TODOS es en memoria, eso significa que cuando apaguemos la aplicación dejarán de persistir los datos.
-
-Para construir la imagen de esta aplicación los pasos están expuestos en 00-monolith-in-mem/README.md
-
-El enunciado del ejercicio lo encontraremos en 00-monolith-in-mem/exercise-monolith-in-memory.md

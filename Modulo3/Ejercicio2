@@ -1,6 +1,0 @@
-Ejercicio 2. Monolito.
-Se trata de la misma aplicación pero en este caso la persistencia en memoria se hace a través de una base de datos.
-
-Para ejecutar la aplicación en local podemos seguir los pasos están expuestos en 01-monolith/README.md
-
-El enunciado del ejercicio lo encontraremos en 01-monolith/exercise-monolith.md

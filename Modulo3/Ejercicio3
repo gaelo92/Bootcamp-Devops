@@ -1,6 +1,0 @@
-Ejercicio 3. Aplicación Distribuida
-See trata de dos aplicaciones, una UI expuesta a tarvés de un nginx y una API que corre sobre express/nodejs y se conecta con una base de datos postgres.
-
-Para ejecutar en local podemos seguir los pasos expuestos en 02-distributed/README.md
-
-El enunciado del ejercicio lo encontarmos en 02-distributed/exercise-ingress.md
