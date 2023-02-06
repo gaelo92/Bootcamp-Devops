@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: appnode-config # Name of the ConfigMap
+  namespace: postgres
+  labels:
+    app: appnode
+data:
+  DB_HOST: 'postgres-service'
+  DB_USER: 'postgres'
+  DB_PASSWORD: 'postgres'
+  DB_PORT: '5432'
+  DB_NAME: 'todos_db'
+  DB_VERSION: '10.1'

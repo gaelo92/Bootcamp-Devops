@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-appnode
+  namespace: postgres
+spec:
+  selector:
+    app: appnode
+  ports:
+    - name: http-port
+      port: 81
+      targetPort: 3000
+  type: LoadBalancer
