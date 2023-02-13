@@ -185,3 +185,85 @@ igualmente:
 ````bash
 ./ejercicio04.sh
 ````
+
+
+## EJERCICIO 05
+
+### Crear un archivo bash
+Para crear un archivo de bash en Linux o MacOS, puedes utilizar el comando touch seguido del nombre del archivo que deseas crear y la extensión ".sh":
+
+````bash
+touch ejercicio05.sh
+````
+### Permisos bash
+Una vez escritos los comandos debes darle permisos de ejecución al archivo con el siguiente comando:
+````bash
+chmod +x ejercicio05.sh
+````
+
+### Contenido
+
+Se verificar que se tenga solo dos parametros de entrada con la condicional if el cual valida lo requerido
+
+````bash
+#!/bin/bash
+# Este es un comentario
+
+if [ $# -ne 2 ]; then
+  echo "Se necesitan únicamente dos parámetros para ejecutar este script"
+  exit 1
+fi
+
+
+touch file3.txt
+# Descargar contenido de la página web a un archivo
+curl -s $2 > file3.txt
+
+# el comando grep con las opciones -m 1 y -n para limitar la búsqueda a solo la primera ocurrencia de la palabra y mostrar el número de línea donde se encuentra la palabra buscada respectivamente. Luego se utiliza awk para imprimir solo el numero de linea.
+result1=$(grep -m 1 -n $1 file3.txt | awk -F: '{print $1}' )
+# Cantidad de veces que aparece el archivo
+result2=$(grep -ci $1 file3.txt)
+
+if [ -z "$result1" ]; then
+    echo "No se ha encontrado la palabra $1"
+else
+    if [ $result2 -eq 1 ]; then
+          echo "La palabra $1 aparece $result2 vez."
+          echo "Aparece únicamente en la línea $result1"
+          exit 1
+    fi
+          echo "La palabra $1 aparece $result2 veces."
+          echo "Aparece por primera vez en la línea $result1"
+fi
+````
+
+### Ejecutar bash
+
+##### Primer caso
+1) para ejecutar el script con pamatros de entrada:
+
+````bash
+./ejercicio05.sh window https://www.disneyplus.com/
+````
+
+2) si ejecutamos sin los dos paramtros o mas, nos devolvera el siguiente error en consola "Se necesitan únicamente dos parámetros para ejecutar este script"
+````bash
+./ejercicio05.sh window https://www.disneyplus.com/  patatas
+````
+igualmente:
+
+````bash
+./ejercicio05.sh  https://www.disneyplus.com/  
+````
+
+
+##### Segundo caso
+
+````bash
+./ejercicio05.sh Pragma https://www.disneyplus.com/
+````
+Si la palabra solo aparece una vez devolverá el siguiente texto:
+````bash
+La palabra Pragma aparece 1 veces.
+Aparece por primera vez en la línea 23
+````
